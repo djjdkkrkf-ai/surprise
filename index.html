@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>a gift for you ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+
+  <main class="app">
+    <!-- ===== Header ===== -->
+    <header class="topbar">
+      <div class="brand"><span class="ico">♡</span> a gift for you</div>
+      <div class="top-actions">
+        <button class="circle-btn hidden" id="btnRestart" title="เริ่มใหม่">
+          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        </button>
+        <button class="circle-btn" id="btnMusicTop" title="เพลง">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== Music card ===== -->
+    <div class="music-card">
+      <svg class="note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      <div class="music-text">
+        <b>กำลังเล่นเพลงของเรา</b>
+        <small>ฟังไปด้วย แล้วค่อย ๆ เปิดของขวัญนะ</small>
+      </div>
+      <button class="pill-btn" id="btnMusic"><span class="pi">❚❚</span> <span class="lbl">พักเพลง</span></button>
+    </div>
+
+    <!-- ===== Progress ===== -->
+    <div class="progress hidden" id="progress">
+      <i></i><i></i><i></i><i></i>
+    </div>
+
+    <!-- ===== Screens ===== -->
+    <section class="screen active" data-screen="intro">
+      <div class="intro">
+        <span class="deco d1">✦</span><span class="deco d2">♡</span><span class="deco d3">✦</span>
+        <p class="eyebrow-soft">ของขวัญชิ้นพิเศษ สำหรับเธอ ♡</p>
+        <span class="chip">ถึงเธอ ♡</span>
+        <h1 class="title">บางอย่างเล็ก ๆ<br />ที่ตั้งใจทำให้เธอ</h1>
+        <div class="photo small"><img data-photo="intro" alt="" /></div>
+        <p class="muted">มีเรื่องอยากบอกเธอด้วยแหละ</p>
+        <button class="main-btn" id="btnOpen">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+          เปิดของขวัญของเธอ <span class="arrow">→</span>
+        </button>
+        <p class="tiny">every second spent on you is worth it</p>
+      </div>
+    </section>
+
+    <!-- 1/4 Fish tank -->
+    <section class="screen" data-screen="1">
+      <div class="sec-head">
+        <span class="sec-ico">🐟</span>
+        <div><h2>ตู้ปลาจิ๋วของเรา</h2><small>โลกใต้น้ำใบเล็กที่จัดไว้ให้เธอ</small></div>
+      </div>
+      <div class="tank" id="tank">
+        <div class="water"></div>
+        <div class="sand"></div>
+        <div class="plant p1"></div><div class="plant p2"></div>
+        <div class="chest">
+          <svg viewBox="0 0 64 52">
+            <path d="M6 22c0-12 8-18 26-18s26 6 26 18z" fill="#9b5a2c" stroke="#5c3415" stroke-width="2"/>
+            <rect x="6" y="22" width="52" height="26" rx="3" fill="#b06a33" stroke="#5c3415" stroke-width="2"/>
+            <path d="M6 30h52" stroke="#5c3415" stroke-width="2"/>
+            <rect x="14" y="4" width="5" height="44" fill="#e3b53c"/><rect x="45" y="4" width="5" height="44" fill="#e3b53c"/>
+            <rect x="27" y="24" width="10" height="11" rx="2" fill="#f4cf54" stroke="#8a6214"/>
+            <circle cx="22" cy="21" r="2.5" fill="#ffe680"/><circle cx="33" cy="19" r="3" fill="#7fe0ff"/><circle cx="42" cy="21" r="2.5" fill="#ff8fb0"/>
+          </svg>
+        </div>
+        <div class="fishes" id="fishes"></div>
+        <div class="tank-shine"></div>
+      </div>
+      <button class="ghost-btn" id="btnFish"><span>❚❚</span> พักปลา</button>
+      <p class="caption">✧ ขอให้โลกใบเล็กของเราสดใสทุกวัน ♡ <br /><small class="muted">(แตะในตู้เพื่อให้อาหารปลาได้นะ)</small></p>
+    </section>
+
+    <!-- 2/4 Flowers -->
+    <section class="screen" data-screen="2">
+      <div class="sec-head">
+        <span class="sec-ico">🌸</span>
+        <div><h2>สตูดิโอจัดช่อดอกไม้</h2><small>ดอกไม้ที่ตั้งใจจัดให้เป็นพิเศษ</small></div>
+      </div>
+      <div class="flower-studio" id="studio">
+        <svg class="bouquet" id="bouquet" viewBox="0 0 200 260">
+          <g id="stems"></g>
+          <g id="blooms"></g>
+          <g class="wrap">
+            <path d="M40 120 L100 250 L160 120 L130 132 L100 118 L70 132 Z" fill="#d6a46c" stroke="#a87444" stroke-width="2"/>
+            <path d="M40 120 L100 250 L82 140 Z" fill="#c8915a"/>
+            <path d="M160 120 L100 250 L118 140 Z" fill="#e2b783"/>
+            <path d="M88 196 q12 8 24 0" stroke="#a87444" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M100 198 q-16 6 -20 22 M100 198 q16 6 20 22" stroke="#a87444" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <p class="tap-hint">แตะเพื่อเพิ่มดอกไม้ ✿</p>
+      </div>
+      <p class="caption">✧ ช่อนี้ตั้งใจจัดให้เธอคนเดียว ♡</p>
+    </section>
+
+    <!-- 3/4 Time with you -->
+    <section class="screen" data-screen="3">
+      <p class="eyebrow">A LITTLE SURPRISE FOR YOU</p>
+      <h2 class="title center">เวลาที่มีเธอ</h2>
+      <div class="photo video"><video src="ฟหกฟหก.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+      <p class="sub">⌛ เราเดินทางด้วยกันมาแล้ว</p>
+      <div class="counter" id="counter">
+        <div><b data-k="d">0</b><span>วัน</span></div><em>:</em>
+        <div><b data-k="h">0</b><span>ชั่วโมง</span></div><em>:</em>
+        <div><b data-k="m">0</b><span>นาที</span></div><em>:</em>
+        <div><b data-k="s">0</b><span>วินาที</span></div>
+      </div>
+      <p class="pink-pill">♡ ร่วมสร้างความทรงจำกว่า <span id="totalHours">0</span> ชั่วโมง ♡</p>
+      <p class="muted center" id="startDateText"></p>
+      <p class="center msg">ขอบคุณที่ทำให้วันธรรมดา กลายเป็นวันที่พิเศษนะ ♡</p>
+    </section>
+
+    <!-- 4/4 Ring box -->
+    <section class="screen" data-screen="4">
+      <p class="eyebrow">A LIFETIME PROMISE • 3D REALISM</p>
+      <p class="muted center" id="ringHint">แตะที่กล่องแหวนกำมะหยี่เพื่อเปิดฝา</p>
+      <div class="live-clock">
+        <p>🕒 เวลารักสะสมของเรา (Live Clock):</p>
+        <div class="lc-row" id="liveClock">
+          <div><b data-k="y">0</b><span>ปี</span></div>
+          <div><b data-k="d">0</b><span>วัน</span></div>
+          <div><b data-k="h">0</b><span>ชม.</span></div>
+          <div><b data-k="m">0</b><span>นาที</span></div>
+          <div class="hot"><b data-k="s">0</b><span>วินาที</span></div>
+        </div>
+      </div>
+      <div class="ring-stage" id="ringStage">
+        <canvas id="ringCanvas"></canvas>
+        <div class="ring-fallback hidden" id="ringFallback">💍</div>
+        <span class="stage-pill" id="stagePill">✨ แตะเปิดกล่องแหวนเพชร 3D ✨</span>
+      </div>
+      <div class="ring-msg" id="ringMsg">
+        <div class="spark">✦</div>
+        <p class="en">Inside this diamond, and across the entire galaxy... Will you stay with me forever? ♡</p>
+        <p>ให้แหวนวงนี้ เป็นพยานในความรักและความจริงใจทั้งหมดที่มีให้เธอ<br />ด้วยรักทั้งหมดของหัวใจ ♡</p>
+      </div>
+    </section>
+
+    <!-- Final -->
+    <section class="screen" data-screen="final">
+      <div class="cat">
+        <svg viewBox="0 0 200 190">
+          <g stroke="#7a4a26" stroke-width="5" stroke-linejoin="round">
+            <path d="M42 70 L52 12 L92 46 Z" fill="#f2a65a"/>
+            <path d="M158 70 L148 12 L108 46 Z" fill="#f2a65a"/>
+            <path d="M55 52 L58 28 L78 44 Z" fill="#f7c3a6" stroke="none"/>
+            <path d="M145 52 L142 28 L122 44 Z" fill="#f7c3a6" stroke="none"/>
+            <ellipse cx="100" cy="88" rx="66" ry="52" fill="#f2a65a"/>
+            <path d="M40 170 q-4 -50 20 -64 h80 q24 14 20 64 z" fill="#f2a65a"/>
+            <ellipse cx="62" cy="172" rx="18" ry="12" fill="#f2a65a"/>
+            <ellipse cx="138" cy="172" rx="18" ry="12" fill="#f2a65a"/>
+          </g>
+          <ellipse cx="62" cy="96" rx="12" ry="7" fill="#f6a0a0" opacity=".8"/>
+          <ellipse cx="138" cy="96" rx="12" ry="7" fill="#f6a0a0" opacity=".8"/>
+          <path d="M70 80 q6 -8 12 0 M118 80 q6 -8 12 0" stroke="#5a3418" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M88 100 q6 8 12 0 q6 8 12 0" stroke="#5a3418" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path class="cat-heart" d="M100 168 C60 140 58 112 78 108 C90 106 98 114 100 122 C102 114 110 106 122 108 C142 112 140 140 100 168Z" fill="#f08a96" stroke="#7a4a26" stroke-width="4"/>
+          <ellipse cx="70" cy="134" rx="13" ry="11" fill="#f2a65a" stroke="#7a4a26" stroke-width="4"/>
+          <ellipse cx="130" cy="134" rx="13" ry="11" fill="#f2a65a" stroke="#7a4a26" stroke-width="4"/>
+        </svg>
+      </div>
+      <p class="eyebrow">YOU ARE MY FAVORITE PERSON</p>
+      <h2 class="title center">ทั้งหมดนี้ ตั้งใจให้เธอ<br /><span class="heart-line">♡</span></h2>
+      <div class="letter">
+        ไม่มีของขวัญอะไรล้ำค่าเท่ากับการได้ตื่นมาแล้วพบว่าเค้ายังมีเธออยู่ข้าง ๆ ในทุกวัน
+      </div>
+      <button class="main-btn center-btn" id="btnAgain">↻ เปิดอีกครั้ง</button>
+    </section>
+
+    <!-- ===== Bottom nav ===== -->
+    <nav class="bottom-nav hidden" id="bottomNav">
+      <button class="back-btn" id="btnBack">← ย้อนกลับ</button>
+      <span class="page-no" id="pageNo">1 / 4</span>
+      <button class="main-btn sm" id="btnNext">ไปต่อ / ข้าม →</button>
+    </nav>
+  </main>
+
+  <button class="float-btn" id="btnHearts" title="ส่งหัวใจ">♡</button>
+  <canvas id="confetti"></canvas>
+  <audio id="bgm" loop preload="auto"></audio>
+  <div class="yt-hidden" aria-hidden="true"><div id="ytPlayer"></div></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
